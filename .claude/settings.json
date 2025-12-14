@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/workspaces/learncc-1/scripts/claude-notification-handler.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

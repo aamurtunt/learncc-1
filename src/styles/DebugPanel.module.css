@@ -1,0 +1,319 @@
+/* DebugPanel.module.css */
+
+/**
+ * Debug Panel Styles
+ *
+ * - Bottom-left positioning
+ * - Glassmorphism dark background
+ * - Cyan accent colors (#00FFFF)
+ * - Grid layout for stats
+ * - Camera PIP styles
+ * - Smooth animations
+ */
+
+.debugPanel {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 320px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+  z-index: 1000;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(0, 255, 255, 0.1) inset;
+  animation: fadeIn 0.3s ease-out;
+  pointer-events: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #00FFFF;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.hint {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+/* Stats grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statLabel {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.statValue {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* FPS color coding */
+.fpsExcellent {
+  color: #00FF00;
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+}
+
+.fpsGood {
+  color: #FFFF00;
+  text-shadow: 0 0 8px rgba(255, 255, 0, 0.5);
+}
+
+.fpsPoor {
+  color: #FF0000;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+}
+
+/* Status indicator */
+.statusIndicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.statusActive {
+  background: #00FF00;
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.6);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.statusInactive {
+  background: #666666;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Performance rating badge */
+.ratingBadge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+}
+
+.ratingExcellent {
+  background: rgba(0, 255, 0, 0.2);
+  color: #00FF00;
+  border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.ratingGood {
+  background: rgba(0, 255, 255, 0.2);
+  color: #00FFFF;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.ratingFair {
+  background: rgba(255, 255, 0, 0.2);
+  color: #FFFF00;
+  border: 1px solid rgba(255, 255, 0, 0.3);
+}
+
+.ratingPoor {
+  background: rgba(255, 0, 0, 0.2);
+  color: #FF0000;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+/* Camera controls */
+.cameraControls {
+  margin-bottom: 12px;
+}
+
+.cameraToggleBtn {
+  width: 100%;
+  padding: 10px 12px;
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 6px;
+  color: #00FFFF;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.cameraToggleBtn:hover {
+  background: rgba(0, 255, 255, 0.2);
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.cameraToggleBtn:active {
+  transform: translateY(0);
+}
+
+.cameraToggleBtn:focus-visible {
+  outline: 2px solid #00FFFF;
+  outline-offset: 2px;
+}
+
+.cameraIcon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Camera PIP (Picture-in-Picture) */
+.cameraPip {
+  width: 160px;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  background: #000000;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.cameraVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Flip horizontally for mirror effect */
+  transform: scaleX(-1);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .debugPanel {
+    width: 280px;
+    bottom: 10px;
+    left: 10px;
+    padding: 12px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+
+  .hint {
+    font-size: 10px;
+  }
+
+  .statsGrid {
+    gap: 10px;
+  }
+
+  .statValue {
+    font-size: 16px;
+  }
+
+  .cameraPip {
+    width: 128px;
+    height: 96px;
+  }
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .debugPanel {
+    animation: none;
+  }
+
+  .cameraPip {
+    animation: none;
+  }
+
+  .statusActive {
+    animation: none;
+  }
+
+  .cameraToggleBtn {
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .debugPanel {
+    border: 2px solid #00FFFF;
+    background: rgba(0, 0, 0, 0.95);
+  }
+
+  .title {
+    text-shadow: none;
+  }
+
+  .cameraToggleBtn {
+    border-width: 2px;
+  }
+}

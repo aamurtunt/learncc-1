@@ -1,0 +1,233 @@
+/* PermissionGate.module.css - Permission prompt UI styles */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #121212;
+  padding: 1rem;
+}
+
+.content {
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  color: #00ffff;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.3));
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: #00ffff;
+  letter-spacing: 0.5px;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  color: #cccccc;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.message p {
+  margin: 0;
+  color: #cccccc;
+  font-size: 1rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 255, 255, 0.1);
+  border-top-color: #00ffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #121212;
+  background-color: #00ffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+  min-width: 180px;
+}
+
+.button:hover {
+  background-color: #00cccc;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.button:focus {
+  outline: 2px solid #00ffff;
+  outline-offset: 3px;
+}
+
+.note {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: #888888;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.error {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: rgba(255, 82, 82, 0.1);
+  border: 1px solid rgba(255, 82, 82, 0.3);
+  border-radius: 6px;
+  color: #ff8a8a;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.instructions {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(0, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 8px;
+  text-align: left;
+}
+
+.instructionsTitle {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #00ffff;
+}
+
+.instructionsList {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: #cccccc;
+}
+
+.instructionsList li {
+  margin-bottom: 0.5rem;
+}
+
+.instructionsList li:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive design - mobile-first */
+@media (max-width: 640px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .button {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .instructions {
+    padding: 1rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .button {
+    border: 2px solid #00ffff;
+  }
+
+  .instructions {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .content {
+    animation: none;
+  }
+
+  .spinner {
+    animation: none;
+    border-top-color: transparent;
+    opacity: 0.5;
+  }
+
+  .button {
+    transition: none;
+  }
+
+  .button:hover {
+    transform: none;
+  }
+}

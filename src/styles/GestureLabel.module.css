@@ -1,0 +1,150 @@
+/**
+ * Gesture Label Styles
+ *
+ * Displays current gesture text in top-right corner with fade animations
+ * Enhanced with cyberpunk aesthetics: multi-layer glow, glassmorphism, pulsing
+ */
+
+.gestureLabel {
+  /* Fixed positioning in top-right corner */
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+
+  /* Enhanced glassmorphism effect */
+  padding: 1rem 1.5rem;
+  background: rgba(0, 20, 30, 0.85);
+  backdrop-filter: blur(12px) saturate(150%);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  box-shadow:
+    /* Inner glow */
+    inset 0 1px 0 rgba(0, 255, 255, 0.1),
+    /* Outer shadow for depth */
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    /* Cyan glow layers */
+    0 0 20px rgba(0, 255, 255, 0.3),
+    0 0 40px rgba(0, 255, 255, 0.2),
+    0 0 60px rgba(0, 255, 255, 0.1);
+
+  /* Typography */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #00FFFF;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  /* Enhanced multi-layer text glow effect */
+  text-shadow:
+    /* Core bright glow */
+    0 0 10px rgba(0, 255, 255, 1),
+    0 0 20px rgba(0, 255, 255, 0.8),
+    0 0 30px rgba(0, 255, 255, 0.6),
+    /* Mid-range glow */
+    0 0 40px rgba(0, 255, 255, 0.4),
+    0 0 60px rgba(0, 255, 255, 0.3),
+    /* Far glow */
+    0 0 80px rgba(0, 255, 255, 0.2);
+
+  /* Smooth transitions */
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  /* Prevent text selection */
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+}
+
+/* Pulsing animation for active state */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow:
+      inset 0 1px 0 rgba(0, 255, 255, 0.1),
+      0 8px 32px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(0, 255, 255, 0.3),
+      0 0 40px rgba(0, 255, 255, 0.2),
+      0 0 60px rgba(0, 255, 255, 0.1);
+    border-color: rgba(0, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow:
+      inset 0 1px 0 rgba(0, 255, 255, 0.2),
+      0 8px 32px rgba(0, 0, 0, 0.5),
+      0 0 30px rgba(0, 255, 255, 0.5),
+      0 0 60px rgba(0, 255, 255, 0.4),
+      0 0 90px rgba(0, 255, 255, 0.2);
+    border-color: rgba(0, 255, 255, 0.6);
+  }
+}
+
+.gestureLabel:hover {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Fade in animation */
+.fadeIn {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade out animation */
+.fadeOut {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+  .gestureLabel {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1rem;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gestureLabel {
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .gestureLabel {
+    transition: opacity 0.1s ease;
+  }
+
+  .fadeIn,
+  .fadeOut {
+    animation: none;
+  }
+}

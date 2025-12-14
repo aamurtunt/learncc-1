@@ -1,0 +1,131 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
+  padding: 2rem;
+}
+
+.content {
+  max-width: 600px;
+  text-align: center;
+  background: rgba(0, 20, 30, 0.85);
+  backdrop-filter: blur(12px) saturate(150%);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(0, 255, 255, 0.2),
+    inset 0 1px 0 rgba(0, 255, 255, 0.1);
+}
+
+.icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 10px rgba(255, 193, 7, 0.5));
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #00FFFF;
+  margin-bottom: 1rem;
+  text-shadow:
+    0 0 10px rgba(0, 255, 255, 0.5),
+    0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.message {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.featureList li {
+  font-size: 1rem;
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border-left: 3px solid #ff6b6b;
+}
+
+.recommendation {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 2rem 0 1.5rem;
+}
+
+.browserLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.browserLink {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 255, 255, 0.1));
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  border-radius: 8px;
+  color: #00FFFF;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.browserLink:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(0, 255, 255, 0.15));
+  border-color: #00FFFF;
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.4),
+    inset 0 0 10px rgba(0, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.browserLink:active {
+  transform: translateY(0);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .content {
+    padding: 2rem 1.5rem;
+  }
+
+  .icon {
+    font-size: 3rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+
+  .browserLinks {
+    flex-direction: column;
+  }
+
+  .browserLink {
+    width: 100%;
+  }
+}
